@@ -20,6 +20,13 @@ describe('ship',() => {
        })
    })
 
+   describe('set sail', () => {
+       it('able to set sail', () => {
+           ship.setSail()
+           expect(ship.startingPort).toBeFalsy()
+       })
+   })
+
 
 
 });
