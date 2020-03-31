@@ -2,7 +2,7 @@ const Ship = require('../src/ship.js');
 
 describe('ship',() => {
    let ship;
-
+   
    beforeEach(() => {
        startingPort = {
            name: 'Belem'

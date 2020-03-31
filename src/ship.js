@@ -3,14 +3,8 @@ class Ship {
         this.name = startingPort.name;
     }
 
-    get sail() {
-        return startingPort;
-    }
-
     setSail() {
-        if (!this.sail) {
-            return false;
-        }
+        return !this.name ? false : true;
     }
 }
 
