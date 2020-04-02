@@ -1,15 +1,18 @@
-const Ship = require('../src/ship.js');
-const Port = require('../src/port.js')
+const { Ship } = require("../src/index");
+const { Port } = require("../src/index");
+const { Itinerary } = require("../src/index");
 
-describe('ship',() => {
    let ship;
-   let port;
+   let port0;
+   let port1;
+   let itinerary;
+   
    
    beforeEach(() => {
-
-       port = new Port('Belem');
-       ship = new Ship(port);
-            
+       port0 = new Port('Sydney');
+       port1 = new Port('Long Beach');
+       itinerary = new Itinerary([port0,port1]);
+       ship = new Ship(itinerary);    
    });
 
    describe('constructor function', () => {
@@ -17,7 +20,7 @@ describe('ship',() => {
            expect(ship).toBeInstanceOf(Object);
        })
        it('has a starting port', () => {
-           expect(ship.currentPort).toBe(port)
+           expect(ship.currentPort).toBe(port0)
        })
    })
 
@@ -25,20 +28,22 @@ describe('ship',() => {
        it('able to set sail', () => {
            ship.setSail()
            expect(ship.currentPort).toBeFalsy()
+           expect(ship.previousPort).toStrictEqual(port0);
        })
    })
 
    describe('dock', () => {
        it('can dock to different ports', () => {
-           const newPort = new Port('Calais');
-           const newPort1 = new Port('Long Beach');
-           ship.dock(newPort)
-           expect(ship.currentPort).toBe(newPort);
-           ship.dock(newPort1)
-           expect(ship.currentPort).toBe(newPort1);
+           ship.setSail()
+           ship.dock()
+           expect(ship.currentPort).toBe(port1);
        })
    })
 
-
-
-});
+   describe('throws an error', () => {
+       it('cant sail further than its itinerary', () => {
+            ship.setSail()
+            ship.dock() 
+            expect(() => ship.setSail()).toThrowError('End of itinerary reached')
+       })
+   })

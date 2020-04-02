@@ -1,20 +1,20 @@
-const Port = require('../src/port.js')
+const { Port } = require("../src/index");
 
 describe('port',() => {
-    let port;
+    let port0;
 
     beforeEach(() => {
         
-        port = new Port('Belem')
+        port0 = new Port('Sydney')
     })
 
     describe('constructor function', () => {
         
         it('returns an object', () => {
-            expect(port).toBeInstanceOf(Object);
+            expect(port0).toBeInstanceOf(Object);
         })
         it('has a name', () => {
-            expect(port.name).toBe('Belem');
+            expect(port0.portName).toBe('Sydney');
         })
     })
 });
