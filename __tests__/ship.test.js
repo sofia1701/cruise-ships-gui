@@ -27,8 +27,9 @@ const { Itinerary } = require("../src/index");
    describe('set sail', () => {
        it('able to set sail', () => {
            ship.setSail()
-           expect(ship.currentPort).toBeFalsy()
+           expect(ship.currentPort).toBeFalsy();
            expect(ship.previousPort).toStrictEqual(port0);
+           expect(port0.ships).not.toContain(ship);
        })
    })
 
@@ -37,6 +38,7 @@ const { Itinerary } = require("../src/index");
            ship.setSail()
            ship.dock()
            expect(ship.currentPort).toBe(port1);
+           expect(port1.ships).toContain(ship)
        })
    })
 
@@ -45,5 +47,11 @@ const { Itinerary } = require("../src/index");
             ship.setSail()
             ship.dock() 
             expect(() => ship.setSail()).toThrowError('End of itinerary reached')
+       })
+   })
+
+   describe('Ship > gets added to port on instantiation',() => {
+       it('gets added to port on instantiation', () => {
+           expect(port0.ships).toContain(ship)
        })
    })
