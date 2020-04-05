@@ -9,8 +9,8 @@ describe('itinerary',() => {
 
     beforeEach(() => {
 
-        port0 = new Port('Sydney');
-        port1 = new Port('Long Beach');
+        port0 = jest.fn();
+        port1 = jest.fn();
         itinerary = new Itinerary([port0,port1]);     
     });
   

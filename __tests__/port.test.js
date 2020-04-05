@@ -9,10 +9,10 @@ describe('port', () => {
 
     beforeEach(() => {
         port = new Port('Sydney')
-        ship = {};
-        titanic = {};
-        queenmary = {};
-        diamondPrincess = {};
+        ship = jest.fn();
+        titanic = jest.fn();
+        queenmary = jest.fn();
+        diamondPrincess = jest.fn();
     })
 
     describe('constructor function', () => {
