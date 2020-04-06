@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1586112247253" clover="3.2.0">
-  <project timestamp="1586112247254" name="All files">
+<coverage generated="1586181980439" clover="3.2.0">
+  <project timestamp="1586181980439" name="All files">
     <metrics statements="28" coveredstatements="28" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="37" coveredelements="37" complexity="0" loc="28" ncloc="28" packages="1" files="4" classes="4"/>
     <file name="index.js" path="/home/sofia/Documents/Projects/cruise-ships/src/index.js">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -11,16 +11,16 @@
     </file>
     <file name="itinerary.js" path="/home/sofia/Documents/Projects/cruise-ships/src/itinerary.js">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="8" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
       <line num="6" count="3" type="stmt"/>
     </file>
     <file name="port.js" path="/home/sofia/Documents/Projects/cruise-ships/src/port.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <line num="3" count="16" type="stmt"/>
-      <line num="4" count="16" type="stmt"/>
-      <line num="8" count="12" type="stmt"/>
-      <line num="11" count="4" type="stmt"/>
-      <line num="12" count="4" type="stmt"/>
+      <line num="3" count="4" type="stmt"/>
+      <line num="4" count="4" type="stmt"/>
+      <line num="8" count="4" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
       <line num="17" count="3" type="stmt"/>
     </file>
     <file name="ship.js" path="/home/sofia/Documents/Projects/cruise-ships/src/ship.js">

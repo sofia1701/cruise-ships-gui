@@ -1,6 +1,6 @@
 const { Ship } = require("../src/index");
-const { Port } = require("../src/index");
-const { Itinerary } = require("../src/index");
+//const { Port } = require("../src/index");
+//const { Itinerary } = require("../src/index");
 
 describe('ship', () => {
 
@@ -9,11 +9,26 @@ describe('ship', () => {
         let port0;
         let port1;
         let itinerary;
+        
     
         beforeEach(() => {
-            port0 = new Port('Sydney');
-            port1 = new Port('Long Beach');
-            itinerary = new Itinerary([port0,port1]);
+            const port = {
+                removeShip: jest.fn(),
+                addShip: jest.fn(),
+            };
+            port0 = {
+                ...port,
+                portName: 'Sydney',
+                ships: [],
+            };
+            port1 = {
+                ...port,
+                portName: 'Long Beach',
+                ships: [],
+            };
+            
+            itinerary = { ports: [port0,port1] };
+
             ship = new Ship(itinerary);    
         });
     
@@ -31,7 +46,7 @@ describe('ship', () => {
                 ship.setSail()
                 expect(ship.currentPort).toBeFalsy();
                 expect(ship.previousPort).toStrictEqual(port0);
-                expect(port0.ships).not.toContain(ship);
+                expect(port0.removeShip).toHaveBeenCalledWith(ship);
             })
         })
      
@@ -40,7 +55,7 @@ describe('ship', () => {
                 ship.setSail()
                 ship.dock()
                 expect(ship.currentPort).toBe(port1);
-                expect(port1.ships).toContain(ship)
+                expect(port1.addShip).toHaveBeenCalledWith(ship)
             })
         })
      
@@ -54,7 +69,7 @@ describe('ship', () => {
      
         describe('Ship > gets added to port on instantiation',() => {
             it('gets added to port on instantiation', () => {
-                expect(port0.ships).toContain(ship)
+                expect(port0.addShip).toHaveBeenCalledWith(ship);
             })
         })
      
