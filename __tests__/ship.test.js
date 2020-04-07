@@ -26,8 +26,10 @@ describe('ship', () => {
                 portName: 'Long Beach',
                 ships: [],
             };
-            
-            itinerary = { ports: [port0,port1] };
+
+            itinerary = { 
+                ports: [port0,port1] 
+            };
 
             ship = new Ship(itinerary);    
         });
