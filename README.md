@@ -16,6 +16,11 @@ Then cd into the repository.
 
 Run `npm install` to install the necessary libraries required for Node.js to run.
 
+Install Jest testing package if you'd like to utilize the test files
+
+`npm install -D jest`
+
+
 ## Running the tests
 
 To run the tests `npm test`

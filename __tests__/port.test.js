@@ -1,18 +1,16 @@
-const { Port } = require("../src/index");
+const Port = require("../src/port");
 
 describe('port', () => {
     let port;
-    //let ship;
     let titanic;
     let queenmary;
     let diamondPrincess;
 
     beforeEach(() => {
         port = new Port('Sydney')
-        //ship = jest.fn();
-        titanic = jest.fn(); // instead of {} 
-        queenmary = jest.fn(); // instead of {}
-        diamondPrincess = jest.fn(); // instead of {}
+        titanic = jest.fn(); 
+        queenmary = jest.fn(); 
+        diamondPrincess = jest.fn(); 
     })
 
     describe('constructor function', () => {

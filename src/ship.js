@@ -12,7 +12,7 @@ class Ship {
         const currentPortIndex = itinerary.ports.indexOf(this.currentPort);
 
         if (currentPortIndex === (itinerary.ports.length - 1)) {
-            throw new Error('End of itinerary reached');
+            throw new Error(`${this.currentPort.portName} - End of itinerary reached`);
         }
 
         this.previousPort = this.currentPort;
@@ -27,7 +27,6 @@ class Ship {
         this.currentPort.addShip(this);
     }
 }
-
 
 
 module.exports = Ship;

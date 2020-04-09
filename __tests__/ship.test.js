@@ -1,6 +1,4 @@
-const { Ship } = require("../src/index");
-//const { Port } = require("../src/index");
-//const { Itinerary } = require("../src/index");
+const Ship = require("../src/ship");
 
 describe('ship', () => {
 
@@ -12,17 +10,15 @@ describe('ship', () => {
         
     
         beforeEach(() => {
-            const port = {
+            port0 = {
                 removeShip: jest.fn(),
                 addShip: jest.fn(),
-            };
-            port0 = {
-                ...port,
                 portName: 'Sydney',
                 ships: [],
             };
             port1 = {
-                ...port,
+                removeShip: jest.fn(),
+                addShip: jest.fn(),
                 portName: 'Long Beach',
                 ships: [],
             };
@@ -65,7 +61,7 @@ describe('ship', () => {
             it('cant sail further than its itinerary', () => {
                  ship.setSail()
                  ship.dock() 
-                 expect(() => ship.setSail()).toThrowError('End of itinerary reached')
+                 expect(() => ship.setSail()).toThrowError(`${port1.portName} - End of itinerary reached`)
             })
         })
      
