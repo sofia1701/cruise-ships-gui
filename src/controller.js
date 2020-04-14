@@ -1,7 +1,12 @@
 (function exportController() {
   class Controller {
-    constructor() {
+    constructor(ship) {
+      this.ship = ship;
       this.initialiseSea();
+
+      document.querySelector("#sailbutton").addEventListener("click", () => {
+        this.setSail();
+      })
     }
   
     initialiseSea() {
@@ -40,16 +45,58 @@
       })
     }
 
-    renderShip(ship) {
+    renderShip() {
+      const ship = this.ship;
       const shipPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+    // finds the index of the ship's currentPort inside of its itinerary.ports  
       const portElement = document.querySelector(`[data-port-index = '${shipPortIndex}']`);
+    // attribute selector to find a .port element that has a portIndex data attribute which corresponds to this index
 
       const shipElement = document.querySelector('#ship');
       shipElement.style.top = `${portElement.offsetTop + 32}px`;
       shipElement.style.left = `${portElement.offsetLeft - 32}px`;
 
     // set the top and left CSS properties of your ship element to the offsetTop and offsetLeft values for the port element.  
-    
+    }
+
+    setSail() {
+      const ship = this.ship;
+      const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+      const nextPortIndex = currentPortIndex + 1;
+      const nextPortElement = document.querySelector(`[data-port-index = '${nextPortIndex}']`);
+
+      if (!nextPortElement) {
+        return this.renderMessage(`${ship.currentPort.portName} is your final destination!`)
+      }
+
+      this.renderMessage(`Departing from ${ship.currentPort.portName}`)
+      ship.setSail();
+
+      const shipElement = document.querySelector('#ship');
+      const sailInterval = setInterval(() => {
+        const shipLeft = parseInt(shipElement.style.left, 10);
+        if(shipLeft === (nextPortElement.offsetLeft - 32)){
+          
+          ship.dock();
+          this.renderMessage(`Arriving at ${ship.currentPort.portName}`)
+          clearInterval(sailInterval);
+        }
+        shipElement.style.left = `${shipLeft + 1}px`;
+      }, 20);
+    }
+
+    renderMessage(message) {
+      const messageElement = document.createElement('div');
+      messageElement.id = 'message';
+      messageElement.innerHTML = message;
+
+      const viewport = document.querySelector('#viewport');
+      viewport.appendChild(messageElement);
+
+      setTimeout(() => {
+        viewport.removeChild(messageElement)
+      }, 3000);
+
     }
   }
 

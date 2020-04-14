@@ -36,3 +36,28 @@ body {
   background-image: url('../images/ship.png');
   position: absolute;
 }
+
+#sailbutton {
+  border: 0;
+  background-color: #FB3640;
+  color: black;
+  font-family: inherit;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#message {
+  border: 0;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+
+}
