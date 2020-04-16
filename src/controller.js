@@ -3,7 +3,8 @@
     constructor(ship) {
       this.ship = ship;
       this.initialiseSea();
-
+      this.displayMessage();
+      
       document.querySelector("#sailbutton").addEventListener("click", () => {
         this.setSail();
       })
@@ -71,6 +72,7 @@
 
       this.renderMessage(`Departing from ${ship.currentPort.portName}`)
       ship.setSail();
+      
 
       const shipElement = document.querySelector('#ship');
       const sailInterval = setInterval(() => {
@@ -78,6 +80,7 @@
         if(shipLeft === (nextPortElement.offsetLeft - 32)){
           
           ship.dock();
+          this.displayMessage();
           this.renderMessage(`Arriving at ${ship.currentPort.portName}`)
           clearInterval(sailInterval);
         }
@@ -95,9 +98,26 @@
 
       setTimeout(() => {
         viewport.removeChild(messageElement)
-      }, 3000);
+      }, 2000);
 
     }
+
+    displayMessage() {
+      
+      this.ship = ship;
+      const currentPortElement = document.getElementById("current-port");
+      const nextPortElement = document.getElementById("next-port");
+
+      currentPortElement.innerHTML = `Current Port: ${ship.currentPort.portName}`;
+      
+      const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+      const nextPortIndex = currentPortIndex + 1;
+      const nextPort = ship.itinerary.ports[nextPortIndex].portName;
+
+      nextPortElement.innerHTML = `Next Port: ${nextPort}`;
+      
+      
+    } 
   }
 
   if (typeof module !== 'undefined' && module.exports) {
