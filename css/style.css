@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-
+  font-family: 'Press Start 2P', cursive;
 }
 
 body {
@@ -47,13 +47,12 @@ body {
   bottom: 0px;
   left: 0;
   width: 100%;
-  font-family: 'Press Start 2P', cursive;
+  
 }
 
 #message {
   border: 0;
   padding: 10px 20px;
-  font-family: 'Press Start 2P', cursive;
   position: absolute;
   width: 100%;
   bottom: 0px;
@@ -64,8 +63,44 @@ body {
 
 #display {
   color: white;
-  font-family: 'Press Start 2P', cursive;
   position: absolute;
   font-size: smaller;
-  margin-bottom: 400px;
+  top: 16px;
+  right: 16px;
 }
+
+.form {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #FB3640;
+  flex-direction: column;
+  top: 16px;
+  left: 16px;
+  position: absolute;
+  font-size: smaller;
+}
+.form label {
+  margin: 5px 10px 5px 0;
+}
+.form input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 10px;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid #FB3640;;
+}
+.form button {
+  margin: 5px 10px 5px 10px ;
+  padding: 5px;
+  background-color: #FB3640;
+  color: black;
+}
+
+
+
+
+
+
+

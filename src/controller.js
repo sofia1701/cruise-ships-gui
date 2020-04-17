@@ -3,7 +3,6 @@
     constructor(ship) {
       this.ship = ship;
       this.initialiseSea();
-      this.displayMessage();
       
       document.querySelector("#sailbutton").addEventListener("click", () => {
         this.setSail();
@@ -27,16 +26,17 @@
     renderPorts(ports) {
       const portsElement = document.querySelector('#ports');
       portsElement.style.width = '0px';
+      //width of 0 as we want JS to manipulate the width of this container every time we add a child element
 
       ports.forEach((port, index) => {
         const newPortElement = document.createElement('div');
         newPortElement.className = 'port';
 
-        newPortElement.dataset.portName = port.name;
+        newPortElement.dataset.portName = port.portName;
         newPortElement.dataset.portIndex = index;
       
         portsElement.appendChild(newPortElement);
-      // This will insert our new element newPortElement into the DOM as a child of the #ports div.
+      // This will insert our new element newPortElement into the DOM as a child of the #ports div
 
   
         const portsElementWidth = parseInt(portsElement.style.width, 10);
@@ -105,18 +105,21 @@
     displayMessage() {
       
       this.ship = ship;
+      
       const currentPortElement = document.getElementById("current-port");
       const nextPortElement = document.getElementById("next-port");
 
-      currentPortElement.innerHTML = `Current Port: ${ship.currentPort.portName}`;
+      currentPortElement.innerText = `Current Port: ${ship.currentPort.portName}`;
       
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
       const nextPortIndex = currentPortIndex + 1;
-      const nextPort = ship.itinerary.ports[nextPortIndex].portName;
+    
+      if (nextPortIndex === ship.itinerary.ports.length) {
+        nextPortElement.innerText = 'End of itinerary'
+      } else {
+        nextPortElement.innerText = `Next Port: ${ship.itinerary.ports[nextPortIndex].portName}`;
 
-      nextPortElement.innerHTML = `Next Port: ${nextPort}`;
-      
-      
+      }
     } 
   }
 
