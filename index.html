@@ -9,10 +9,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" > 
 </head>
 <body>
-  <form class="form" action="port form">
-    <label for="add port">Add Port</label>
-    <input type="add port" id="addport" placeholder="Add port here...">
-    <button id="portbutton">Add</button>
+
+  <form action = "" method = "" class="form" id="form">
+    <div>
+      <label id="label" for="add port">Add Port</label>
+    </div>
+    <div>
+      <input id="input" type = "text" name="add port" placeholder="Add port here..." required>
+    </div>
+    <button id="portButton">Add</button>
   </form>
 
   <div id="viewport">
@@ -26,8 +31,12 @@
   </div>
 
   <div id="display">
-    <div id="current-port"></div>
-    <div id="next-port"></div>
+    <div>
+      <span id="current-port"></span>
+    </div>
+    <div>
+      <span id="next-port"></span>
+    </div>
   </div>
 
   <script src="src/controller.js"></script>
@@ -39,19 +48,19 @@
   <script>
 
     const itinerary = new Itinerary([
-      new Port('Sydney'),
-      new Port('Long Beach'),
-      new Port('Lisbon'),
-      new Port('New York'),
+      //new Port('Sydney'),
+      //new Port('Long Beach'),
+      //new Port('Lisbon'),
+      //new Port('New York'),
     ]);
 
     const ship = new Ship(itinerary);
 
     const controller = new Controller(ship);
   
-    controller.renderPorts(ship.itinerary.ports);
-    controller.renderShip();
-    controller.displayMessage();
+    controller.renderPorts(itinerary.ports);
+    //controller.renderShip();
+  
   </script>
 
 </body>

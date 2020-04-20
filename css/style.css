@@ -44,7 +44,7 @@ body {
   font-family: inherit;
   padding: 10px 20px;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   width: 100%;
   
@@ -69,7 +69,7 @@ body {
   right: 16px;
 }
 
-.form {
+#form {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -81,17 +81,20 @@ body {
   position: absolute;
   font-size: smaller;
 }
-.form label {
-  margin: 5px 10px 5px 0;
+#label {
+  margin: 5px 10px 5px 10px;
+  padding: 10px;
+  vertical-align: middle;
 }
-.form input {
+
+#input {
   vertical-align: middle;
   margin: 5px 10px 5px 10px;
   padding: 10px;
   background-color: white;
   border: 2px solid #FB3640;;
 }
-.form button {
+#portButton {
   margin: 5px 10px 5px 10px ;
   padding: 5px;
   background-color: #FB3640;
