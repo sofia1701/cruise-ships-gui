@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cruise Ships</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" > 
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cruise Ships</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    />
+  </head>
+  <body>
+    <form action="" method="" class="form" id="form">
+      <div>
+        <label id="label" for="add port">Add Port</label>
+      </div>
+      <div>
+        <input
+          id="input"
+          type="text"
+          name="add port"
+          placeholder="Add port here..."
+          required
+        />
+      </div>
+      <button id="portButton">Add</button>
+    </form>
 
-  <form action = "" method = "" class="form" id="form">
-    <div>
-      <label id="label" for="add port">Add Port</label>
+    <div id="viewport">
+      <div id="ports"></div>
+
+      <div id="ship"></div>
+
+      <button id="sailbutton">Press to Sail!</button>
     </div>
-    <div>
-      <input id="input" type = "text" name="add port" placeholder="Add port here..." required>
+
+    <div id="display">
+      <div>
+        <span id="current-port"></span>
+      </div>
+      <div>
+        <span id="next-port"></span>
+      </div>
     </div>
-    <button id="portButton">Add</button>
-  </form>
 
-  <div id="viewport">
+    <script src="src/controller.js"></script>
+    <script src="src/ship.js"></script>
+    <script src="src/itinerary.js"></script>
+    <script src="src/port.js"></script>
 
-    <div id="ports"></div>
+    <script>
+      const itinerary = new Itinerary([
+        //new Port('Sydney'),
+        //new Port('Long Beach'),
+        //new Port('Lisbon'),
+        //new Port('New York'),
+      ]);
 
-    <div id="ship"></div>
+      const ship = new Ship(itinerary);
 
-    <button id="sailbutton">Press to Sail!</button>
-    
-  </div>
+      const controller = new Controller(ship);
 
-  <div id="display">
-    <div>
-      <span id="current-port"></span>
-    </div>
-    <div>
-      <span id="next-port"></span>
-    </div>
-  </div>
-
-  <script src="src/controller.js"></script>
-  <script src="src/ship.js"></script>
-  <script src="src/itinerary.js"></script>
-  <script src="src/port.js"></script>
-  
-  
-  <script>
-
-    const itinerary = new Itinerary([
-      //new Port('Sydney'),
-      //new Port('Long Beach'),
-      //new Port('Lisbon'),
-      //new Port('New York'),
-    ]);
-
-    const ship = new Ship(itinerary);
-
-    const controller = new Controller(ship);
-  
-    controller.renderPorts(itinerary.ports);
-    //controller.renderShip();
-  
-  </script>
-
-</body>
+      controller.renderPorts(itinerary.ports);
+      //controller.renderShip();
+    </script>
+  </body>
 </html>

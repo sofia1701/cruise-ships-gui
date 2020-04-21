@@ -1,12 +1,13 @@
-html, body {
+html,
+body {
   height: 100%;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
 }
 
 body {
   background-color: black;
   display: flex;
-  justify-content: center;  /* main axis, horizontal */
+  justify-content: center; /* main axis, horizontal */
   align-items: center; /* cross axis, vertical */
 }
 
@@ -15,7 +16,7 @@ body {
   height: 256px;
   position: relative;
   overflow-x: auto;
-  background-image: url('../images/water0.png');
+  background-image: url("../images/water0.png");
 }
 
 #ports {
@@ -27,19 +28,19 @@ body {
 #ports > .port {
   width: 64px;
   height: 32px;
-  background-image: url('../images/port.png');
+  background-image: url("../images/port.png");
 }
 
 #ship {
   width: 128px;
   height: 64px;
-  background-image: url('../images/ship.png');
+  background-image: url("../images/ship.png");
   position: absolute;
 }
 
 #sailbutton {
   border: 0;
-  background-color: #FB3640;
+  background-color: #fb3640;
   color: black;
   font-family: inherit;
   padding: 10px 20px;
@@ -47,7 +48,6 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  
 }
 
 #message {
@@ -58,7 +58,6 @@ body {
   bottom: 0px;
   left: 0;
   background-color: white;
-
 }
 
 #display {
@@ -74,7 +73,7 @@ body {
   flex-flow: row wrap;
   align-items: center;
   background-color: white;
-  border: 2px solid #FB3640;
+  border: 2px solid #fb3640;
   flex-direction: column;
   top: 16px;
   left: 16px;
@@ -92,18 +91,12 @@ body {
   margin: 5px 10px 5px 10px;
   padding: 10px;
   background-color: white;
-  border: 2px solid #FB3640;;
+  border: 2px solid #fb3640;
 }
+
 #portButton {
-  margin: 5px 10px 5px 10px ;
+  margin: 5px 10px 5px 10px;
   padding: 5px;
-  background-color: #FB3640;
+  background-color: #fb3640;
   color: black;
 }
-
-
-
-
-
-
-

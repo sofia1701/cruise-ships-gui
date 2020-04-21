@@ -14,6 +14,7 @@
         this.renderPorts(ship.itinerary.ports);
         this.renderShip();
         this.displayMessage();
+        document.getElementById("input").value = "";
       });
     }
 
@@ -33,17 +34,19 @@
     renderPorts(ports) {
       const portsElement = document.querySelector("#ports");
       console.log(portsElement.childNodes);
+
       portsElement.style.width = "0px";
       //width of 0 as we want JS to manipulate the width of this container every time we add a child element
 
       ports.forEach((port, index) => {
         if (!document.querySelector(`[data-port-name=${port.portName}]`)) {
           const newPortElement = document.createElement("div");
-          newPortElement.className = "port";
+
           console.log(
             document.querySelector(`[data-port-name=${port.portName}]`)
           );
 
+          newPortElement.className = "port";
           newPortElement.dataset.portName = port.portName;
           newPortElement.dataset.portIndex = index;
 
@@ -74,11 +77,16 @@
 
     setSail() {
       const ship = this.ship;
+
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
       const nextPortIndex = currentPortIndex + 1;
       const nextPortElement = document.querySelector(
         `[data-port-index = '${nextPortIndex}']`
       );
+
+      if (!ship.currentPort) {
+        return this.renderMessage("Please add a port name to procceed!");
+      }
 
       if (!nextPortElement) {
         return this.renderMessage(
@@ -136,9 +144,6 @@
     }
 
     addPort() {
-      //You'll still need the renderPort method. I believe the addPort method
-      //just needs to create a new Port object, add it to your ship Itinerary
-      //and then render it.
       const ship = this.ship;
 
       const newPort = document.getElementById("input").value;
